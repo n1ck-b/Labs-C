@@ -7,6 +7,8 @@
 #include <QFile>
 #include <QMessageBox>
 #include <QJsonDocument>
+#include <QGraphicsItemGroup>
+#include <QActionGroup>
 
 namespace Ui {
     class SearchForCarsWindow;
@@ -25,6 +27,7 @@ private:
     QButtonGroup* buttonGroup;
     QJsonArray jsonArray;
     void createSQLQuery(std::string& sql, QString lowerValue, QString upperValue, bool& isFirst, std::string parameterName);
+    void setValidators();
 private slots:
     void onSearchPushButtonClicked();
     void onCheckBoxEdited();

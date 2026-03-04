@@ -26,7 +26,6 @@ private:
 private slots:
     void onBackPushButtonClicked();
     void onAddPushButtonClicked();
-    void editedAnyLineEdit();
     void setValidators();
 protected:
     void closeEvent(QCloseEvent* event) override;

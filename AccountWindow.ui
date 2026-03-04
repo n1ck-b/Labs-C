@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AccountWindow</class>
+ <widget class="QDialog" name="AccountWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>556</width>
+    <height>692</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Ваш аккаунт</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(244, 240, 239);
+font: 600 10pt &quot;Montserrat&quot;;
+color: rgb(55, 51, 53);</string>
+  </property>
+  <widget class="QPushButton" name="backPushButton">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>620</y>
+     <width>80</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:hover
+{
+	background-color: #9AB6AC;
+}
+QPushButton{
+	color: rgb(55, 51, 53);
+	font: 600 10pt &quot;Montserrat&quot;;
+	border-radius: 10px;
+	border-style: solid;
+	border-width: 0px;
+	background-color: rgb(200, 215, 210);
+	padding: 5px;
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>Назад</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="topLabel">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>30</y>
+     <width>111</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 800 11pt &quot;Montserrat&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Ваш аккаунт</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="logoutPushButton">
+   <property name="geometry">
+    <rect>
+     <x>319</x>
+     <y>620</y>
+     <width>151</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:hover
+{
+	background-color: #CC3329;
+}
+QPushButton{
+	color: rgb(244, 240, 239);
+	font: 500 10pt &quot;Montserrat&quot;;
+	border-radius: 12px;
+	border-style: solid;
+	border-width: 0px;
+	background-color: rgb(215, 67, 57);
+	padding: 5px;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Выйти из аккаунта</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="balanceLabel">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>70</y>
+     <width>121</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Баланс аккаунта:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="balanceAmountLabel">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>70</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="replenishBalancePushButton">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>70</y>
+     <width>151</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:hover
+{
+	background-color: #9AB6AC;
+}
+QPushButton{
+	color: rgb(55, 51, 53);
+	font: 600 10pt &quot;Montserrat&quot;;
+	border-radius: 10px;
+	border-style: solid;
+	border-width: 0px;
+	background-color: rgb(200, 215, 210);
+	padding: 5px;
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>Пополнить баланс</string>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="listWidget">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>190</y>
+     <width>371</width>
+     <height>331</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QListWidget
+{
+	background-color: rgb(244, 240, 239);
+	border: none;
+	border-radius: 15px;
+	color: rgb(55, 51, 53);
+	font: 500 9pt &quot;Montserrat&quot;;
+	outline: 0px;
+}
+QListWidget::item
+{
+	outline: none;
+	padding: 2px;
+	margin-right: 10px;
+}
+QScrollBar
+{
+	background-color: rgb(244, 240, 239);
+	border: 2px solid rgb(244, 240, 239);
+	width: 15px;
+}
+QScrollBar::handle:vertical
+{
+	border: 2px solid blue;
+	background-color: rgb(244, 240, 239);
+	border-radius: 2px;
+	width: 5px;
+}
+ QScrollBar::add-line:vertical {
+     border: 2px solid rgb(55, 51, 53);
+     background:  rgb(244, 240, 239);
+     height: 20px;
+ }</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>160</y>
+     <width>211</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 700 10pt &quot;Montserrat&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Купленные вами автомобили</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="tradeInPushButton">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>540</y>
+     <width>131</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:hover
+{
+	background-color: #CC3329;
+}
+QPushButton{
+	color: rgb(244, 240, 239);
+	font: 600 10pt &quot;Montserrat&quot;;
+	border-radius: 12px;
+	border-style: solid;
+	border-width: 0px;
+	background-color: rgb(215, 67, 57);
+	padding: 5px;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Сдать в trade-in</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="warningLabel">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>540</y>
+     <width>231</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:8pt;
+color:#CC3329;</string>
+   </property>
+   <property name="text">
+    <string>Выберите машину для сдачи в trade-in</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="remarkLabelBottom">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>570</y>
+     <width>501</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:8pt;</string>
+   </property>
+   <property name="text">
+    <string>*вы сможете использовать 70% стоимости в качестве скидки</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="tradeInLabel">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>120</y>
+     <width>131</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Скидка по trade-in:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="tradeInAmountLabel">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>120</y>
+     <width>101</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="remarkLabel">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>530</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>*</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="percentageofDiscountLabel">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>120</y>
+     <width>191</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Скидка за кол-во покупок:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="percentageofDiscountAmountLabel">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>120</y>
+     <width>41</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

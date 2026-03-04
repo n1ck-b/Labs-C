@@ -1,5 +1,8 @@
 <RCC>
   <qresource prefix="rcs">
+    <file>SL-110820-37810-18-Photoroom.png</file>
+    <file>view.png</file>
+    <file>hide.png</file>
     <file>free-icon-down-arrow-2985150.png</file>
     <file>free-icon-down-arrow-29851501.png</file>
   </qresource>

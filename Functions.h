@@ -7,7 +7,9 @@
 #include "ElectricEngineCar.h"
 #include "CombustionEngineCar.h"
 #include "HybridEngineCar.h"
-#include "Repository.h"
+#include "RepositoryForCars.h"
+#include "RepositoryForUsers.h"
+#include "RepositoryForUsersBoughtCars.h"
 #include "Exception.h"
 #include "CarAddingWindow.h"
 #include "CatalogWindow.h"
@@ -17,6 +19,8 @@
 #include "List.h"
 #include "Node.h"
 #include "Iterator.h"
+//#include "User.h"
+//#include "SessionStatus.h"
 #include <typeinfo>
 #include <vector>
 

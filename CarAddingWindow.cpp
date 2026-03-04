@@ -11,19 +11,9 @@ CarAddingWindow::CarAddingWindow(QWidget* parent)
     , ui(new Ui::CarAddingWindow)
 {
     ui->setupUi(this);
-    ui->addPushButton->setDisabled(true);
-    ui->addPushButton->setStyleSheet("QPushButton:hover { background-color: #CC3329; } QPushButton { color: rgb(244, 240, 239); border-radius: 10px; border-style: solid; border-width: 0px; background-color: #A62921; padding: 5px }");
-    ui->warningLabel->setText(QString::fromUtf8("Заполните все поля"));
     connect(ui->engineTypeComboBox, &QComboBox::currentIndexChanged, this, &CarAddingWindow::checkForEngineType);
     connect(ui->backPushButton, &QPushButton::clicked, this, &CarAddingWindow::onBackPushButtonClicked);
     connect(ui->addPushButton, &QPushButton::clicked, this, &CarAddingWindow::onAddPushButtonClicked);
-    connect(ui->yearLineEdit, &QLineEdit::textChanged, this, &CarAddingWindow::editedAnyLineEdit);
-    connect(ui->mileageLineEdit, &QLineEdit::textChanged, this, &CarAddingWindow::editedAnyLineEdit);
-    connect(ui->priceLineEdit, &QLineEdit::textChanged, this, &CarAddingWindow::editedAnyLineEdit);
-    connect(ui->brandLineEdit, &QLineEdit::textChanged, this, &CarAddingWindow::editedAnyLineEdit);
-    connect(ui->modelLineEdit, &QLineEdit::textChanged, this, &CarAddingWindow::editedAnyLineEdit);
-    connect(ui->fuelLineEdit, &QLineEdit::textChanged, this, &CarAddingWindow::editedAnyLineEdit);
-    connect(ui->batteryLineEdit, &QLineEdit::textChanged, this, &CarAddingWindow::editedAnyLineEdit);
     setValidators();
     checkForEngineType();
 }
@@ -33,6 +23,12 @@ CarAddingWindow::~CarAddingWindow()
 }
 void CarAddingWindow::onAddPushButtonClicked()
 {
+    if ((ui->batteryLineEdit->text().isEmpty() &&ui->batteryLineEdit->isEnabled()) || ui->brandLineEdit->text().isEmpty() || (ui->fuelLineEdit->text().isEmpty() && ui->fuelLineEdit->isEnabled()) || ui->mileageLineEdit->text().isEmpty() || ui->modelLineEdit->text().isEmpty() || ui->priceLineEdit->text().isEmpty() || ui->yearLineEdit->text().isEmpty())
+    {
+        ui->warningLabel->setText(QString::fromUtf8("Заполните все поля"));
+        return;
+    }
+    ui->warningLabel->clear();
     ElectricEngineCar electricCar;
     CombustionEngineCar combustionCar;
     HybridEngineCar hybridCar;
@@ -40,24 +36,28 @@ void CarAddingWindow::onAddPushButtonClicked()
     int engineType = ui->engineTypeComboBox->currentIndex() + 1;
     if (engineType == 1)
     {
-        Repository<ElectricEngineCar> rep1;
+        RepositoryForCars<ElectricEngineCar> rep1;
         QString temp = ui->yearLineEdit->text();
         electricCar.setYear(temp.toInt());
         temp = ui->mileageLineEdit->text();
         electricCar.setMileage(temp.toInt());
-        temp = ui->priceLineEdit->text();
-        electricCar.setPrice(temp.toFloat());
+        std::string str = ui->priceLineEdit->text().toStdString();
+        if (str.find(',') != std::string::npos)
+            str.replace(str.find(','), 1, ".");
+        electricCar.setPrice(stod(str));
         temp = ui->brandLineEdit->text();
         electricCar.setBrand(temp.toStdString());
         temp = ui->modelLineEdit->text();
         electricCar.setModel(temp.toStdString());
-        temp = ui->batteryLineEdit->text();
-        float batteryCapacity = temp.toFloat();
+        str = ui->batteryLineEdit->text().toStdString();
+        if (str.find(',') != std::string::npos)
+            str.replace(str.find(','), 1, ".");
+        electricCar.setBatteryCapacity(stod(str));
         SQL = "INSERT INTO electric_cars (year_of_production, mileage, price, brand, model, battery_capacity)"
             "VALUES (?, ?, ?, ?, ?, ?);";
         try
         {
-            rep1.addCar(electricCar, SQL, engineType, 0, batteryCapacity);
+            rep1.addCar(electricCar, SQL, "Cars.db");
         }
         catch (Exception& ex)
         {
@@ -66,24 +66,28 @@ void CarAddingWindow::onAddPushButtonClicked()
     }
     if (engineType == 2)
     {
-        Repository<CombustionEngineCar> rep2;
+        RepositoryForCars<CombustionEngineCar> rep2;
         QString temp = ui->yearLineEdit->text();
         combustionCar.setYear(temp.toInt());
         temp = ui->mileageLineEdit->text();
         combustionCar.setMileage(temp.toInt());
-        temp = ui->priceLineEdit->text();
-        combustionCar.setPrice(temp.toFloat());
+        std::string str = ui->priceLineEdit->text().toStdString();
+        if (str.find(',') != std::string::npos)
+            str.replace(str.find(','), 1, ".");
+        combustionCar.setPrice(stod(str));
         temp = ui->brandLineEdit->text();
         combustionCar.setBrand(temp.toStdString());
         temp = ui->modelLineEdit->text();
         combustionCar.setModel(temp.toStdString());
-        temp = ui->fuelLineEdit->text();
-        float flueTankCapacity = temp.toFloat();
+        str = ui->fuelLineEdit->text().toStdString();
+        if (str.find(',') != std::string::npos)
+            str.replace(str.find(','), 1, ".");
+        combustionCar.setFuelTankCapacity(stod(str));
         SQL = "INSERT INTO combustion_cars (year_of_production, mileage, price, brand, model, fuel_tank_capacity)"
             "VALUES (?, ?, ?, ?, ?, ?);";
         try
         {
-            rep2.addCar(combustionCar, SQL, engineType, flueTankCapacity);
+            rep2.addCar(combustionCar, SQL, "Cars.db");
         }
         catch (Exception& ex)
         {
@@ -92,27 +96,33 @@ void CarAddingWindow::onAddPushButtonClicked()
     }
     if (engineType == 3)
     {
-        Repository<HybridEngineCar> rep3;
+        RepositoryForCars<HybridEngineCar> rep3;
         QString temp = ui->yearLineEdit->text();
         hybridCar.setYear(temp.toInt());
         temp = ui->mileageLineEdit->text();
         hybridCar.setMileage(temp.toInt());
-        temp = ui->priceLineEdit->text();
-        hybridCar.setPrice(temp.toFloat());
+        std::string str = ui->priceLineEdit->text().toStdString();
+        if (str.find(',') != std::string::npos)
+            str.replace(str.find(','), 1, ".");
+        hybridCar.setPrice(stod(str));
         temp = ui->brandLineEdit->text();
         hybridCar.setBrand(temp.toStdString());
         temp = ui->modelLineEdit->text();
         hybridCar.setModel(temp.toStdString());
-        temp = ui->fuelLineEdit->text();
-        float fuelTankCapacity = temp.toFloat();
-        temp = ui->batteryLineEdit->text();
-        float batteryCapacity = temp.toFloat();
-        int hybridType = ui->hybridTypeComboBox->currentIndex();
+        str = ui->fuelLineEdit->text().toStdString();
+        if (str.find(',') != std::string::npos)
+            str.replace(str.find(','), 1, ".");
+        hybridCar.setFuelTankCapacity(stod(str));
+        str = ui->batteryLineEdit->text().toStdString();
+        if (str.find(',') != std::string::npos)
+            str.replace(str.find(','), 1, ".");
+        hybridCar.setBatteryCapacity(stod(str));
+        hybridCar.setHybridType(ui->hybridTypeComboBox->currentIndex());
         SQL = "INSERT INTO hybrid_cars (year_of_production, mileage, price, brand, model, fuel_tank_capacity, battery_capacity, hybrid_type)"
             "VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
         try
         {
-            rep3.addCar(hybridCar, SQL, engineType, fuelTankCapacity, batteryCapacity, hybridType);
+            rep3.addCar(hybridCar, SQL, "Cars.db");
         }
         catch (Exception& ex)
         {
@@ -127,7 +137,7 @@ void CarAddingWindow::checkForEngineType()
     ui->batteryLineEdit->setEnabled(true);
     ui->hybridTypeComboBox->setEnabled(true);
     ui->fuelLineEdit->setStyleSheet("color: rgb(55, 51, 53); border-style: solid; border-width: 0px; background-color: rgb(200, 215, 210); padding: 5px");
-    ui->hybridTypeComboBox->setStyleSheet("QComboBox::drop-down { border:none; } QComboBox::down-arrow { image: url(:/rcs/free-icon-down-arrow-2985150.png); wigth: 30px; height:30px; margin-right: 5px; } QComboBox { color: rgb(55, 51, 53); border-style: solid; border-width: 0px; background-color: rgb(200, 215, 210); padding: 5px }");
+    ui->hybridTypeComboBox->setStyleSheet("QComboBox { color: rgb(30, 36, 39); font: 600 9pt 'Montserrat'; border-style: solid; border-width: 0px; background-color: rgb(200, 215, 210); padding: 5px; } QComboBox::drop-down { border:none; } QComboBox::down-arrow { image: url(:/rcs/free-icon-down-arrow-2985150.png); wigth: 30px; height:30px; margin-right: 5px; }");
     ui->batteryLineEdit->setStyleSheet("color: rgb(55, 51, 53); border-style: solid; border-width: 0px; background-color: rgb(200, 215, 210); padding: 5px");
     int engineType = ui->engineTypeComboBox->currentIndex() + 1;
     if (engineType == 1)
@@ -135,47 +145,19 @@ void CarAddingWindow::checkForEngineType()
         ui->fuelLineEdit->setDisabled(true);
         ui->fuelLineEdit->setStyleSheet("QLineEdit:disabled { background-color: #9AB6AC; border: none; }");
         ui->hybridTypeComboBox->setDisabled(true);
-        ui->hybridTypeComboBox->setStyleSheet("QComboBox::drop-down { border:none; } QComboBox::down-arrow { image: url(:/rcs/free-icon-down-arrow-2985150.png); wigth: 30px; height:30px; margin-right: 5px; } QComboBox:disabled { background-color: #9AB6AC; border: none; }");
+        ui->hybridTypeComboBox->setStyleSheet("QComboBox::drop-down { border:none; } QComboBox::down-arrow { image: url(:/rcs/free-icon-down-arrow-2985150.png); wigth: 30px; height:30px; margin-right: 5px; } QComboBox:disabled { background-color: #9AB6AC; border: none; font-size: 9pt; }");
     }
     if (engineType == 2)
     {
         ui->batteryLineEdit->setDisabled(true);
         ui->batteryLineEdit->setStyleSheet("QLineEdit:disabled { background-color: #9AB6AC; border: none; }");
         ui->hybridTypeComboBox->setDisabled(true);
-        ui->hybridTypeComboBox->setStyleSheet("QComboBox::drop-down { border:none; } QComboBox::down-arrow { image: url(:/rcs/free-icon-down-arrow-2985150.png); wigth: 30px; height:30px; margin-right: 5px; }QComboBox:disabled { background-color: #9AB6AC; border: none; }");
+        ui->hybridTypeComboBox->setStyleSheet("QComboBox::drop-down { border:none; } QComboBox::down-arrow { image: url(:/rcs/free-icon-down-arrow-2985150.png); wigth: 30px; height:30px; margin-right: 5px; }QComboBox:disabled { background-color: #9AB6AC; border: none; font-size: 9pt; }");
     }
 }
 void CarAddingWindow::onBackPushButtonClicked()
 {
     close();
-}
-void CarAddingWindow::editedAnyLineEdit()
-{
-    ui->addPushButton->setEnabled(true);
-    ui->addPushButton->setStyleSheet("QPushButton:hover { background-color: #CC3329; } QPushButton { color: rgb(244, 240, 239); border-radius: 10px; border-style: solid; border-width: 0px; background-color: rgb(215, 67, 57); padding: 5px }");
-    try
-    {
-        if (ui->yearLineEdit->text().isEmpty() || ui->mileageLineEdit->text().isEmpty() || ui->priceLineEdit->text().isEmpty() || ui->brandLineEdit->text().isEmpty() || ui->modelLineEdit->text().isEmpty() || (ui->batteryLineEdit->text().isEmpty() && ui->batteryLineEdit->isEnabled()) || (ui->fuelLineEdit->text().isEmpty() && ui->fuelLineEdit->isEnabled()))
-        {
-            ui->addPushButton->setDisabled(true);
-            ui->addPushButton->setStyleSheet("QPushButton:hover { background-color: #CC3329; } QPushButton { color: rgb(244, 240, 239); border-radius: 10px; border-style: solid; border-width: 0px; background-color: #A62921; padding: 5px }");
-            throw Exception("Заполните все поля");
-        }
-        else
-            ui->warningLabel->setText("");
-        if (!ui->yearLineEdit->text().toInt() || !ui->mileageLineEdit->text().toInt() || !ui->priceLineEdit->text().toFloat() || (!ui->batteryLineEdit->text().toFloat() && ui->batteryLineEdit->isEnabled()) || (!ui->fuelLineEdit->text().toFloat() && ui->fuelLineEdit->isEnabled()))
-        {
-            ui->addPushButton->setDisabled(true);
-            ui->addPushButton->setStyleSheet("QPushButton:hover { background-color: #CC3329; } QPushButton { color: rgb(244, 240, 239); border-radius: 10px; border-style: solid; border-width: 0px; background-color: #A62921; padding: 5px }");
-            throw Exception("Введена строка вместо числа");
-        }
-        else
-            ui->warningLabel->setText("");
-    }
-    catch (Exception& ex)
-    {
-        ui->warningLabel->setText(QString::fromUtf8(ex.what()));
-    }
 }
 void CarAddingWindow::closeEvent(QCloseEvent* event)
 {
@@ -184,13 +166,13 @@ void CarAddingWindow::closeEvent(QCloseEvent* event)
 }
 void CarAddingWindow::setValidators()
 {
-    auto validatorForMileage = new QIntValidator(0, 2000000, this);
+    QIntValidator* validatorForMileage = new QIntValidator(0, 2000000, this);
     ui->mileageLineEdit->setValidator(validatorForMileage);
-    auto validatorForYear = new QIntValidator(1800, 2024, this);
+    QIntValidator* validatorForYear = new QIntValidator(1800, 2024, this);
     ui->yearLineEdit->setValidator(validatorForYear);
-    auto validatorForPrice = new QDoubleValidator(1.0, 10000000.0, 3, this);
+    QDoubleValidator* validatorForPrice = new QDoubleValidator(1.0, 30000000.0, 3, this);
     ui->priceLineEdit->setValidator(validatorForPrice);
-    auto validatorForFuelAndBatteryCapacity = new QDoubleValidator(10.0, 1000.0, 3, this);
+    QDoubleValidator* validatorForFuelAndBatteryCapacity = new QDoubleValidator(10.0, 1000.0, 3, this);
     ui->batteryLineEdit->setValidator(validatorForFuelAndBatteryCapacity);
     ui->fuelLineEdit->setValidator(validatorForFuelAndBatteryCapacity);
 }

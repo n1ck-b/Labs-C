@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>671</width>
-    <height>533</height>
+    <width>841</width>
+    <height>646</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,7 +24,7 @@ color: rgb(55, 51, 53);</string>
      <x>30</x>
      <y>120</y>
      <width>401</width>
-     <height>311</height>
+     <height>381</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -67,7 +67,7 @@ QScrollBar::handle:vertical
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>470</y>
+     <y>570</y>
      <width>80</width>
      <height>24</height>
     </rect>
@@ -113,8 +113,8 @@ font: 600 11pt &quot;Montserrat&quot;;</string>
   <widget class="QPushButton" name="addPushButton">
    <property name="geometry">
     <rect>
-     <x>470</x>
-     <y>177</y>
+     <x>510</x>
+     <y>140</y>
      <width>111</width>
      <height>25</height>
     </rect>
@@ -142,8 +142,8 @@ QPushButton{
   <widget class="QPushButton" name="deletePushButton">
    <property name="geometry">
     <rect>
-     <x>470</x>
-     <y>220</y>
+     <x>680</x>
+     <y>140</y>
      <width>111</width>
      <height>25</height>
     </rect>
@@ -168,11 +168,11 @@ QPushButton{
     <string>Удалить</string>
    </property>
   </widget>
-  <widget class="QLabel" name="rightLabel">
+  <widget class="QLabel" name="actionsLabel">
    <property name="geometry">
     <rect>
-     <x>470</x>
-     <y>119</y>
+     <x>590</x>
+     <y>80</y>
      <width>121</width>
      <height>31</height>
     </rect>
@@ -191,8 +191,8 @@ font: 600 10pt &quot;Montserrat&quot;;
    <property name="geometry">
     <rect>
      <x>470</x>
-     <y>260</y>
-     <width>181</width>
+     <y>220</y>
+     <width>361</width>
      <height>121</height>
     </rect>
    </property>
@@ -200,19 +200,17 @@ font: 600 10pt &quot;Montserrat&quot;;
     <string notr="true">text-align: center;</string>
    </property>
    <property name="text">
-    <string>Чтобы сравнить два
-автомобиля, выберите
-первый, нажмите кнопку,
-затем выберите второй
-и нажмите снова.</string>
+    <string>Для сравнения двух автомобилей необходимо
+выбрать первый, нажать кнопку, затем выбрать
+второй и нажать снова.</string>
    </property>
   </widget>
   <widget class="QPushButton" name="comparePushButton">
    <property name="geometry">
     <rect>
-     <x>470</x>
-     <y>400</y>
-     <width>111</width>
+     <x>500</x>
+     <y>370</y>
+     <width>281</width>
      <height>24</height>
     </rect>
    </property>
@@ -233,7 +231,7 @@ QPushButton{
 </string>
    </property>
    <property name="text">
-    <string>Выбрать</string>
+    <string>Выбрать автомобиль для сравнения</string>
    </property>
   </widget>
   <widget class="QLabel" name="filterLabel">
@@ -316,6 +314,52 @@ QComboBox QAbstractItemView
      <string>Только гибридные</string>
     </property>
    </item>
+  </widget>
+  <widget class="QPushButton" name="buyPushButton">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>570</y>
+     <width>111</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:hover
+{
+	background-color: #CC3329;
+}
+QPushButton{
+	color: rgb(244, 240, 239);
+	font: 600 10pt &quot;Montserrat&quot;;
+	border-radius: 12px;
+	border-style: solid;
+	border-width: 0px;
+	background-color: rgb(215, 67, 57);
+	padding: 5px;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Купить</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="warningLabel">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>540</y>
+     <width>401</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size: 9pt;
+color:rgb(215, 67, 57);</string>
+   </property>
+   <property name="text">
+    <string>Авторизуйтесь, чтобы иметь возможность купить автомобиль</string>
+   </property>
   </widget>
  </widget>
  <resources>

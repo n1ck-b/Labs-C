@@ -1,11 +1,11 @@
 #pragma once
 #include "Functions.h"
 template <typename T>
-class Repository;
+class RepositoryForCars;
 
 class ElectricEngineCar : virtual public Car
 {
-	friend class Repository<ElectricEngineCar>;
+	friend class RepositoryForCars<ElectricEngineCar>;
 protected:
 	float batteryCapacity;
 public:

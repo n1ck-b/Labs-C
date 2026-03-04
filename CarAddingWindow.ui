@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>661</height>
+    <width>398</width>
+    <height>565</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,9 +21,9 @@ color: rgb(55, 51, 53);</string>
   <widget class="QLabel" name="yearLabel">
    <property name="geometry">
     <rect>
-     <x>9</x>
+     <x>29</x>
      <y>100</y>
-     <width>141</width>
+     <width>150</width>
      <height>16</height>
     </rect>
    </property>
@@ -34,14 +34,14 @@ color: rgb(55, 51, 53);</string>
   <widget class="QLabel" name="mileageLabel">
    <property name="geometry">
     <rect>
-     <x>9</x>
+     <x>29</x>
      <y>140</y>
-     <width>101</width>
+     <width>110</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>Пробег</string>
+    <string>Пробег, км</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="mileageLineEdit">
@@ -65,27 +65,27 @@ background-color: rgb(200, 215, 210);</string>
   <widget class="QLabel" name="priceLabel">
    <property name="geometry">
     <rect>
-     <x>9</x>
+     <x>29</x>
      <y>184</y>
-     <width>121</width>
+     <width>130</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>Стоимость</string>
+    <string>Стоимость, p.</string>
    </property>
   </widget>
   <widget class="QLabel" name="brandLabel">
    <property name="geometry">
     <rect>
-     <x>9</x>
+     <x>29</x>
      <y>226</y>
-     <width>101</width>
+     <width>110</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>Марку</string>
+    <string>Марка</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="brandLineEdit">
@@ -109,9 +109,9 @@ background-color: rgb(200, 215, 210);</string>
   <widget class="QLabel" name="modelLabel">
    <property name="geometry">
     <rect>
-     <x>9</x>
+     <x>29</x>
      <y>268</y>
-     <width>101</width>
+     <width>110</width>
      <height>16</height>
     </rect>
    </property>
@@ -176,10 +176,10 @@ background-color: rgb(200, 215, 210);</string>
   <widget class="QLabel" name="topLabel">
    <property name="geometry">
     <rect>
-     <x>9</x>
+     <x>39</x>
      <y>10</y>
-     <width>382</width>
-     <height>35</height>
+     <width>321</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -222,15 +222,15 @@ QPushButton{
   <widget class="QLabel" name="fuelLabel">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>30</x>
      <y>310</y>
-     <width>101</width>
+     <width>120</width>
      <height>31</height>
     </rect>
    </property>
    <property name="text">
     <string>Объем
-топливного бака</string>
+топливного бака, л</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="fuelLineEdit">
@@ -239,7 +239,7 @@ QPushButton{
      <x>150</x>
      <y>310</y>
      <width>211</width>
-     <height>24</height>
+     <height>30</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -255,9 +255,9 @@ background-color: rgb(200, 215, 210);</string>
    <property name="geometry">
     <rect>
      <x>150</x>
-     <y>370</y>
+     <y>359</y>
      <width>211</width>
-     <height>24</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -272,23 +272,23 @@ background-color: rgb(200, 215, 210);</string>
   <widget class="QLabel" name="batteryLabel">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>30</x>
      <y>360</y>
-     <width>101</width>
+     <width>110</width>
      <height>31</height>
     </rect>
    </property>
    <property name="text">
-    <string>Ёмкость
-батареи</string>
+    <string>Ёмкость батареи,
+Ач</string>
    </property>
   </widget>
   <widget class="QLabel" name="hybridLabel">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>30</x>
      <y>410</y>
-     <width>91</width>
+     <width>100</width>
      <height>31</height>
     </rect>
    </property>
@@ -342,9 +342,9 @@ QComboBox::down-arrow
   <widget class="QLabel" name="engineTypeLabel">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>30</x>
      <y>50</y>
-     <width>91</width>
+     <width>100</width>
      <height>31</height>
     </rect>
    </property>

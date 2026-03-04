@@ -4,7 +4,7 @@ void ElectricEngineCar::setBatteryCapacity(float CarBatteryCapacity)
 {
 	this->batteryCapacity = CarBatteryCapacity;
 }
-float ElectricEngineCar::getBatteryCapacity() const
+float ElectricEngineCar::getBatteryCapacity()
 {
 	return batteryCapacity;
 }

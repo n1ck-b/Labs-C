@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>843</width>
-    <height>604</height>
+    <height>660</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,7 +39,7 @@ qproperty-alignment: 'AlignCenter';</string>
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>170</y>
+     <y>200</y>
      <width>101</width>
      <height>22</height>
     </rect>
@@ -63,7 +63,7 @@ QCheckBox::indicator:checked {
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>170</y>
+     <y>200</y>
      <width>21</width>
      <height>21</height>
     </rect>
@@ -76,7 +76,7 @@ QCheckBox::indicator:checked {
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>170</y>
+     <y>200</y>
      <width>91</width>
      <height>24</height>
     </rect>
@@ -94,7 +94,7 @@ background-color: rgb(200, 215, 210);</string>
    <property name="geometry">
     <rect>
      <x>310</x>
-     <y>170</y>
+     <y>200</y>
      <width>21</width>
      <height>21</height>
     </rect>
@@ -107,7 +107,7 @@ background-color: rgb(200, 215, 210);</string>
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>210</y>
+     <y>240</y>
      <width>21</width>
      <height>21</height>
     </rect>
@@ -120,7 +120,7 @@ background-color: rgb(200, 215, 210);</string>
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>210</y>
+     <y>240</y>
      <width>101</width>
      <height>22</height>
     </rect>
@@ -137,14 +137,14 @@ QCheckBox::indicator:checked {
 }</string>
    </property>
    <property name="text">
-    <string>Пробег(км)</string>
+    <string>Пробег, км</string>
    </property>
   </widget>
   <widget class="QLabel" name="mileageLabelTo">
    <property name="geometry">
     <rect>
      <x>310</x>
-     <y>210</y>
+     <y>240</y>
      <width>21</width>
      <height>21</height>
     </rect>
@@ -157,7 +157,7 @@ QCheckBox::indicator:checked {
    <property name="geometry">
     <rect>
      <x>340</x>
-     <y>210</y>
+     <y>240</y>
      <width>91</width>
      <height>24</height>
     </rect>
@@ -175,7 +175,7 @@ background-color: rgb(200, 215, 210);</string>
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>210</y>
+     <y>240</y>
      <width>91</width>
      <height>24</height>
     </rect>
@@ -193,7 +193,7 @@ background-color: rgb(200, 215, 210);</string>
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>250</y>
+     <y>280</y>
      <width>21</width>
      <height>21</height>
     </rect>
@@ -206,8 +206,8 @@ background-color: rgb(200, 215, 210);</string>
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>250</y>
-     <width>101</width>
+     <y>280</y>
+     <width>111</width>
      <height>22</height>
     </rect>
    </property>
@@ -223,14 +223,14 @@ QCheckBox::indicator:checked {
 }</string>
    </property>
    <property name="text">
-    <string>Стоимость $</string>
+    <string>Стоимость, р.</string>
    </property>
   </widget>
   <widget class="QLabel" name="priceLabelTo">
    <property name="geometry">
     <rect>
      <x>310</x>
-     <y>250</y>
+     <y>280</y>
      <width>21</width>
      <height>21</height>
     </rect>
@@ -243,7 +243,7 @@ QCheckBox::indicator:checked {
    <property name="geometry">
     <rect>
      <x>340</x>
-     <y>250</y>
+     <y>280</y>
      <width>91</width>
      <height>24</height>
     </rect>
@@ -261,7 +261,7 @@ background-color: rgb(200, 215, 210);</string>
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>250</y>
+     <y>280</y>
      <width>91</width>
      <height>24</height>
     </rect>
@@ -279,7 +279,7 @@ background-color: rgb(200, 215, 210);</string>
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>300</y>
+     <y>330</y>
      <width>21</width>
      <height>21</height>
     </rect>
@@ -292,7 +292,7 @@ background-color: rgb(200, 215, 210);</string>
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>290</y>
+     <y>320</y>
      <width>111</width>
      <height>41</height>
     </rect>
@@ -317,7 +317,7 @@ QCheckBox::indicator:checked {
    <property name="geometry">
     <rect>
      <x>310</x>
-     <y>300</y>
+     <y>330</y>
      <width>21</width>
      <height>21</height>
     </rect>
@@ -330,7 +330,7 @@ QCheckBox::indicator:checked {
    <property name="geometry">
     <rect>
      <x>340</x>
-     <y>300</y>
+     <y>330</y>
      <width>91</width>
      <height>24</height>
     </rect>
@@ -348,7 +348,7 @@ background-color: rgb(200, 215, 210);</string>
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>300</y>
+     <y>330</y>
      <width>91</width>
      <height>24</height>
     </rect>
@@ -366,7 +366,7 @@ background-color: rgb(200, 215, 210);</string>
    <property name="geometry">
     <rect>
      <x>340</x>
-     <y>170</y>
+     <y>200</y>
      <width>91</width>
      <height>24</height>
     </rect>
@@ -384,7 +384,7 @@ background-color: rgb(200, 215, 210);</string>
    <property name="geometry">
     <rect>
      <x>310</x>
-     <y>360</y>
+     <y>390</y>
      <width>21</width>
      <height>21</height>
     </rect>
@@ -397,7 +397,7 @@ background-color: rgb(200, 215, 210);</string>
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>360</y>
+     <y>390</y>
      <width>91</width>
      <height>24</height>
     </rect>
@@ -415,7 +415,7 @@ background-color: rgb(200, 215, 210);</string>
    <property name="geometry">
     <rect>
      <x>340</x>
-     <y>360</y>
+     <y>390</y>
      <width>91</width>
      <height>24</height>
     </rect>
@@ -433,7 +433,7 @@ background-color: rgb(200, 215, 210);</string>
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>360</y>
+     <y>390</y>
      <width>21</width>
      <height>21</height>
     </rect>
@@ -446,7 +446,7 @@ background-color: rgb(200, 215, 210);</string>
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>350</y>
+     <y>380</y>
      <width>111</width>
      <height>41</height>
     </rect>
@@ -471,7 +471,7 @@ QCheckBox::indicator:checked {
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>90</y>
+     <y>120</y>
      <width>101</width>
      <height>22</height>
     </rect>
@@ -495,7 +495,7 @@ QCheckBox::indicator:checked {
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>90</y>
+     <y>120</y>
      <width>241</width>
      <height>24</height>
     </rect>
@@ -513,7 +513,7 @@ background-color: rgb(200, 215, 210);</string>
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>130</y>
+     <y>160</y>
      <width>101</width>
      <height>22</height>
     </rect>
@@ -537,7 +537,7 @@ QCheckBox::indicator:checked {
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>130</y>
+     <y>160</y>
      <width>241</width>
      <height>24</height>
     </rect>
@@ -555,7 +555,7 @@ background-color: rgb(200, 215, 210);</string>
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>410</y>
+     <y>440</y>
      <width>111</width>
      <height>21</height>
     </rect>
@@ -579,7 +579,7 @@ QCheckBox::indicator:checked {
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>410</y>
+     <y>440</y>
      <width>171</width>
      <height>24</height>
     </rect>
@@ -641,12 +641,17 @@ QListWidget::item:selected
 	border: none 
 }</string>
    </property>
+   <item>
+    <property name="text">
+     <string>Выберите параметры и осуществите поиск</string>
+    </property>
+   </item>
   </widget>
   <widget class="QPushButton" name="backPushButton">
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>520</y>
+     <y>560</y>
      <width>80</width>
      <height>24</height>
     </rect>
@@ -676,7 +681,7 @@ QPushButton{
    <property name="geometry">
     <rect>
      <x>269</x>
-     <y>520</y>
+     <y>560</y>
      <width>161</width>
      <height>24</height>
     </rect>
@@ -720,7 +725,7 @@ QPushButton{
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>460</y>
+     <y>490</y>
      <width>401</width>
      <height>41</height>
     </rect>
@@ -736,7 +741,7 @@ QPushButton{
    <property name="geometry">
     <rect>
      <x>590</x>
-     <y>520</y>
+     <y>560</y>
      <width>231</width>
      <height>24</height>
     </rect>
@@ -764,7 +769,7 @@ QPushButton{
    <property name="geometry">
     <rect>
      <x>630</x>
-     <y>560</y>
+     <y>600</y>
      <width>191</width>
      <height>20</height>
     </rect>
@@ -775,6 +780,77 @@ QPushButton{
    <property name="text">
     <string/>
    </property>
+  </widget>
+  <widget class="QCheckBox" name="typeOfEngineCheckBox">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>80</y>
+     <width>121</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox::indicator {
+    border: solid;
+	border-color: #657A84;
+	border-width: 1px;	
+}
+QCheckBox::indicator:checked {
+	border: none;
+	background-color: rgb(215, 67, 57);
+}</string>
+   </property>
+   <property name="text">
+    <string>Тип двигателя</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="typeOfEngineComboBox">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>80</y>
+     <width>241</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QComboBox 
+{
+	color: rgb(30, 36, 39);
+	font: 600 9pt &quot;Montserrat&quot;;
+	border-style: solid;
+	border-width: 0px;
+	background-color: rgb(200, 215, 210);
+	padding: 5px
+}
+QComboBox::drop-down
+{
+	border:none;
+}
+QComboBox::down-arrow
+{
+	image: url(:/rcs/free-icon-down-arrow-2985150.png);
+	width:10px;
+	height:10px;
+	margin-right: 7px;
+}</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>1. Электрический</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2. ДВС</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>3. Гибридный</string>
+    </property>
+   </item>
   </widget>
  </widget>
  <resources>

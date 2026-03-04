@@ -1,4 +1,4 @@
-#ifndef CARCOMPAREWINDOW_H
+ï»¿#ifndef CARCOMPAREWINDOW_H
 #define CARCOMPAREWINDOW_H
 
 #include <vector>
@@ -21,49 +21,43 @@ public:
     explicit CarCompareWindow(QWidget* parent = nullptr);
     ~CarCompareWindow();
     template<typename T>
-    void infoAboutFirstCar(T car, float fuelTankCapacity = 0, float batteryCapacity = 0, int hybridType = 0)
+    void infoAboutFirstCar(T car)
     {
         ui->CarYearLabel1->setText(QString::number(car.getYear()));
         ui->CarMileageLabel1->setText(QString::number(car.getMileage()));
         ui->CarPriceLabel1->setText(QString::number(car.getPrice()));
         ui->CarBrandLabel1->setText(QString::fromStdString(car.getBrand()));
         ui->CarModelLabel1->setText(QString::fromStdString(car.getModel()));
-        std::string str = typeid(car).name();
-        if (str == "class ElectricEngineCar" || str == "class HybridEngineCar")
-            ui->CarBatteryLabel1->setText(QString::number(batteryCapacity));
-        if (str == "class CombustionEngineCar" || str == "class HybridEngineCar")
-            ui->CarFuelLabel1->setText(QString::number(fuelTankCapacity));
-        if (str == "class HybridEngineCar")
+        if constexpr (std::is_same_v<ElectricEngineCar, T> || std::is_same_v<HybridEngineCar, T>)
+            ui->CarBatteryLabel1->setText(QString::number(car.getBatteryCapacity()));
+        if constexpr (std::is_same_v<CombustionEngineCar, T> || std::is_same_v<HybridEngineCar, T>)
+            ui->CarFuelLabel1->setText(QString::number(car.getFuelTankCapacity()));
+        if constexpr (std::is_same_v<HybridEngineCar, T>)
         {
-            if (hybridType == 0)
-                ui->CarHybridTypeLabel1->setText(QString::fromLocal8Bit("Ïîñëåäîâàòåëüíûé"));
-            if (hybridType == 1)
-                ui->CarHybridTypeLabel1->setText(QString::fromLocal8Bit("Ïàðàëëåëüíûé"));
+            if (car.getHybridType() == 0)
+                ui->CarHybridTypeLabel1->setText(QString::fromUtf8("ÐŸÐ¾ÑÐ»ÐµÐ´Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¹"));
+            if (car.getHybridType() == 1)
+                ui->CarHybridTypeLabel1->setText(QString::fromUtf8("ÐŸÐ°Ñ€Ð°Ð»Ð»ÐµÐ»ÑŒÐ½Ñ‹Ð¹"));
         }
     }
     template<typename T>
-    void infoAboutSecondCar(T car, float fuelTankCapacity = 0, float batteryCapacity = 0, int hybridType = 0)
+    void infoAboutSecondCar(T car)
     {
         ui->CarYearLabel2->setText(QString::number(car.getYear()));
         ui->CarMileageLabel2->setText(QString::number(car.getMileage()));
         ui->CarPriceLabel2->setText(QString::number(car.getPrice()));
         ui->CarBrandLabel2->setText(QString::fromStdString(car.getBrand()));
         ui->CarModelLabel2->setText(QString::fromStdString(car.getModel()));
-        std::string str = typeid(car).name();
-        if (str == "class ElectricEngineCar" || str == "class HybridEngineCar")
-            ui->CarBatteryLabel2->setText(QString::number(batteryCapacity));
-        if (str == "class CombustionEngineCar" || str == "class HybridEngineCar")
-            ui->CarFuelLabel2->setText(QString::number(fuelTankCapacity));
-        if (str == "class HybridEngineCar")
+        if constexpr (std::is_same_v<ElectricEngineCar, T> || std::is_same_v<HybridEngineCar, T>)
+            ui->CarBatteryLabel2->setText(QString::number(car.getBatteryCapacity()));
+        if constexpr (std::is_same_v<CombustionEngineCar, T> || std::is_same_v<HybridEngineCar, T>)
+            ui->CarFuelLabel2->setText(QString::number(car.getFuelTankCapacity()));
+        if constexpr (std::is_same_v<HybridEngineCar, T>)
         {
-            if (hybridType == 0)
-            {
-                ui->CarHybridTypeLabel2->setText(QString::fromLocal8Bit("Ïîñëåäîâàòåëüíûé"));
-            }
-            if (hybridType == 1)
-            {
-                ui->CarHybridTypeLabel2->setText(QString::fromLocal8Bit("Ïàðàëëåëüíûé"));
-            }
+            if (car.getHybridType() == 0)
+                ui->CarHybridTypeLabel2->setText(QString::fromUtf8("ÐŸÐ¾ÑÐ»ÐµÐ´Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¹"));
+            if (car.getHybridType() == 1)
+                ui->CarHybridTypeLabel2->setText(QString::fromUtf8("ÐŸÐ°Ñ€Ð°Ð»Ð»ÐµÐ»ÑŒÐ½Ñ‹Ð¹"));
         }
     }
     void compareCars();

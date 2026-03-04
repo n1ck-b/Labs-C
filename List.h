@@ -18,15 +18,13 @@ public:
 	}
 	Iterator end()
 	{
-		return Iterator(nullptr);
+		return Iterator(last->next);
 	}
 	~List()
 	{
-		List<T>::Iterator it = List<T>::begin();
-		while (it != List::end())
+		while (sizeOfList != 0)
 		{
 			popBack();
-			++it;
 		}
 	}
 	int size() const
@@ -37,9 +35,11 @@ public:
 	{
 		return first == nullptr;
 	}
-	void pushBack(T Car)
+	void pushBack(T& newCar, int id)
 	{
-		auto temp = new Node<T>;
+		Node<T>* temp = new Node<T>;
+		temp->next = nullptr;
+		temp->prev = nullptr;
 		if (isEmpty())
 		{
 			first = temp;
@@ -51,33 +51,44 @@ public:
 			temp->prev = last;
 			last = temp;
 		}
-		temp->car.setYear(Car.getYear());
-		temp->car.setMileage(Car.getMileage());
-		temp->car.setPrice(Car.getPrice());
-		temp->car.setBrand(Car.getBrand());
-		temp->car.setModel(Car.getModel());
+		temp->car.setYear(newCar.getYear());
+		temp->car.setMileage(newCar.getMileage());
+		temp->car.setPrice(newCar.getPrice());
+		temp->car.setBrand(newCar.getBrand());
+		temp->car.setModel(newCar.getModel());
+		temp->id = id;
 		if constexpr (std::is_same_v<T, CombustionEngineCar> || std::is_same_v<T, HybridEngineCar>)
-			temp->car.setFuelTankCapacity(Car.getFuelTankCapacity());
+			temp->car.setFuelTankCapacity(newCar.getFuelTankCapacity());
 		if constexpr (std::is_same_v<T, ElectricEngineCar> || std::is_same_v<T, HybridEngineCar>)
-			temp->car.setBatteryCapacity(Car.getBatteryCapacity());
+			temp->car.setBatteryCapacity(newCar.getBatteryCapacity());
 		if constexpr (std::is_same_v<T, HybridEngineCar>)
-			temp->car.setHybridType(Car.getHybridType());
+			temp->car.setHybridType(newCar.getHybridType());
 		sizeOfList++;
 	}
 	void popBack()
 	{
-		Node<T>* temp = last;
-		last = last->prev;
-		last->next = nullptr;
-		delete temp;
+		if (first->next == nullptr)
+		{
+			delete first;
+			first = last = nullptr;
+		}
+		else
+		{
+			Node<T>* temp = last;
+			last = last->prev;
+			delete temp;
+			last->next = nullptr;
+		}
 		sizeOfList--;
 	}
-	void insert(Iterator it, T Car)
+	void insert(Iterator it, T& Car, int id)
 	{
 		if (size() > 1 && it != first)
 		{
-			auto newNode = new Node<T>;
-			auto prevNode = it.current->prev;
+			Node<T>* newNode = new Node<T>;
+			newNode->next = nullptr;
+			newNode->prev = nullptr;
+			Node<T>* prevNode = it.current->prev;
 			it.current->prev = newNode;
 			newNode->next = it.current;
 			prevNode->next = newNode;
@@ -87,6 +98,7 @@ public:
 			newNode->car.setPrice(Car.getPrice());
 			newNode->car.setBrand(Car.getBrand());
 			newNode->car.setModel(Car.getModel());
+			newNode->id = id;
 			if constexpr (std::is_same_v<T, CombustionEngineCar> || std::is_same_v<T, HybridEngineCar>)
 				newNode->car.setFuelTankCapacity(Car.getFuelTankCapacity());
 			if constexpr (std::is_same_v<T, ElectricEngineCar> || std::is_same_v<T, HybridEngineCar>)
@@ -96,7 +108,13 @@ public:
 			sizeOfList++;
 		}
 		else
-			pushBack(Car);
+			pushBack(Car, id);
 	}
-
+	void clear()
+	{
+		while (sizeOfList != 0)
+		{
+			popBack();
+		}
+	}
 };

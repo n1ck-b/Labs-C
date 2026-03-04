@@ -1,11 +1,11 @@
 #pragma once
 #include "Functions.h"
 template <typename T>
-class Repository;
+class RepositoryForCars;
 
 class HybridEngineCar : public ElectricEngineCar, public CombustionEngineCar
 {
-	friend class Repository<HybridEngineCar>;
+	friend class RepositoryForCars<HybridEngineCar>;
 private:
 	int hybridType; //0 - последовательный, 1 - параллельный
 public:

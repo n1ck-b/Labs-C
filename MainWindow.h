@@ -4,6 +4,7 @@
 #include "ui_MainWindow.h"
 #include "CatalogWindow.h"
 #include "SearchForCarsWindow.h"
+#include "LoginWindow.h"
 #include <QPropertyAnimation>
 #include <QGraphicsDropShadowEffect>
 
@@ -25,4 +26,8 @@ private slots:
     void onCatalogPushButtonClicked();
     void onExitPushButtonClicked();
     void onSearchPushButtonClicked();
+    void onLoginPushButtonClicked();
+    void onSuccessfulAuthenticationOrRegistration();
+    void checkForAuthentication();
+    void onCalculatorPushButtonClicked();
 };

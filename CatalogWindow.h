@@ -9,6 +9,7 @@
 #include "CarAddingWindow.h"
 #include "Functions.h"
 #include "List.h"
+#include "Node.h"
 
 namespace Ui {
     class CatalogWindow;
@@ -27,6 +28,15 @@ public:
     void addItemsToList();
     void getDataForComparison();
     CarAddingWindow* carAddingWindow;
+    template <typename T>
+    void getIterator(int index, typename List<T>::Iterator& it)
+    {
+        for (int i = 0; i < index; ++i)
+        {
+            ++it;
+        }
+    }
+    void getDataForOneCarFromAllCars(int& engineType, int carIndex, CombustionEngineCar& combustionCar, ElectricEngineCar& electricCar, HybridEngineCar& hybridCar);
 private:
     Ui::CatalogWindow* ui;
     int clickCountForComparison = 0;
@@ -36,6 +46,7 @@ private:
     List<ElectricEngineCar> electricCarsList;
     List<HybridEngineCar> hybridCarsList;
     void addItemsToLists();
+    void checkForRights();
 private slots:
     void onBackPushButtonClicked();
     void onAddPushButtonClicked();
@@ -44,6 +55,8 @@ private slots:
     void onComparePushButtonClicked();
     void onCarAddingWindowClosed();
     void onFilterComboBoxChanged();
+    void onBuyPushButtonClicked();
+    void onPurchaseWindowClosed();
 };
 
 #endif // CATALOGWINDOW_H

@@ -13,9 +13,9 @@ private:
 public:
 	friend class List<T>;
 	Iterator(Node<T>* current) : current(current){}
-	T operator*()
+	Node<T> operator*()
 	{
-		return current->car;
+		return *current;
 	}
 	Iterator& operator++()
 	{
